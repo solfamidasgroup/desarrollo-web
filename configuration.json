@@ -1,0 +1,11 @@
+{
+    "mysql_password": "mi abuela rapera",
+    "gmail_password": "mi abuela rapera",
+    "gmail_username": "solfamidas.grupo@gmail.com",
+    "mysql_hostname": "solfamidas.mysql.pythonanywhere-services.com",
+    "mysql_username": "solfamidas",
+    "SECRET_KEY": "Hey que pasa gente",
+    "mysql_databasename": "solfamidas$aulavirtual",
+    "MODE": "production"
+
+ }

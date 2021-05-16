@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+                <li><a href="{{url_for('module002.module002_index')}}">Home</a></li>
+              {% for route in routes %}
+                <li><a href={{url_for('module002.module002_post', course=route.course_name) }}>{{ route.course_name }}</a></li>
+              {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
