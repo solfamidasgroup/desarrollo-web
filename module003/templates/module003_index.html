@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
-{% block content %} 
-	<h1> Module003 - v2 </h1>
-{% endblock %} 
+{% block content %}
+	<div class="container-fluid" style="float: left;">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar" style="width: 290px;">
+                <li><a href="{{url_for('module003.module003_index')}}">Home</a></li>
+                <li><a href="{{url_for('module003.module003_create')}}">Create assignment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+{% endblock %}

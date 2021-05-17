@@ -93,10 +93,15 @@ class Post(db.Model):
 
 class Assignment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(50))
+    title = db.Column(db.String(50))
     body = db.Column(db.Text)
-    date_expire = db.Column(db.DateTime)
+    course_name = db.Column(db.String(50))
+    institution_name = db.Column(db.String(50))
     date_created  = db.Column(db.DateTime,  default=db.func.current_timestamp())
+    date_expire = db.Column(db.DateTime)
+    date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(),
+                                       onupdate=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
 
 
