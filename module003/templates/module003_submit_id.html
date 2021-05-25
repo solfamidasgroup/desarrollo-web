@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div>
+
+    <div class="container-fluid" style="float: left;">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar" style="width: 290px;">
+                <li><a href="{{url_for('module003.module003_index')}}">Home</a></li>
+                <li><a href="{{url_for('module003.module003_create')}}">Create assignment</a></li>
+                <li><a href="{{url_for('module003.module003_submit')}}">Submit assignment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container justify-content-center">
+
+        <h1>{{ assignment.title }}</h1>
+        <p1>{{ assignment.body }}</h1>
+        </br>
+        <div>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <label for="inputFile">File Input</label>
+                <input type="file" name="inputFile">
+                </br>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+
+        </br>
+
+        <div class="table-responsive">
+        <table id="myTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Date Submitted</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.date_submitted }}</td>
+                <td>{{ row.grade }}/10</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+
+{% endblock %}

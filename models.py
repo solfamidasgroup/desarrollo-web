@@ -34,6 +34,7 @@ class User(UserMixin,db.Model): # User extends db.Model
                                        onupdate=db.func.current_timestamp())
     course = db.relationship('Course', backref='user', lazy=True)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    assignment = db.relationship('AssignmentSubmit', backref='username', lazy='dynamic')
 
 class Course(UserMixin,db.Model): # User extends db.Model
     id = db.Column(db.Integer, primary_key=True)
@@ -101,6 +102,17 @@ class Assignment(db.Model):
     date_expire = db.Column(db.DateTime)
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(),
                                        onupdate=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+
+class AssignmentSubmit(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    course_name = db.Column(db.String(50))
+    institution_name = db.Column(db.String(50))
+    data = db.Column(db.LargeBinary)
+    date_submitted  = db.Column(db.DateTime,  default=db.func.current_timestamp())
+    grade = db.Column(db.String(50))
+    assignment_id = db.Column(db.Integer, db.ForeignKey('assignment.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
 

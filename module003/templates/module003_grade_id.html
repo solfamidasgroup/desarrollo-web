@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div>
+
+    <div class="container-fluid" style="float: left;">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar" style="width: 290px;">
+                <li><a href="{{url_for('module003.module003_index')}}">Home</a></li>
+                <li><a href="{{url_for('module003.module003_create')}}">Create assignment</a></li>
+                <li><a href="{{url_for('module003.module003_submit')}}">Submit assignment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container justify-content-center">
+
+        <h1>User: {{ submit.username.username }}</h1>
+
+        <h2>Date submitted: {{ submit.date_submitted }}</h2>
+
+        <h2>Grade: {{ submit.grade }}/10</h2>
+
+        <h2>Download content: </h2>
+        <a><form method="POST" action="{{ url_for('module003.module003_download', gradeid=submit.id) }}">
+                   <input type="submit" value="download">
+        </form> </a>
+
+        <hr>
+
+        <form style="width:150px" class="form-signin" method="POST" action="{{ url_for('module003.module003_grade_id', gradeid=submit.id) }}">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.grade) }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">> Update </button>
+        </form>
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

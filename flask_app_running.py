@@ -53,7 +53,7 @@ from admin import init_admin
 admin = init_admin(app)
 
 # ORM - Object Relational Mapping -Magico que se conecta a casi cualquiera base de datos.
-from models import init_db, User
+from models import init_db, User, Follow, Assignment
 db = init_db(app)
 
 migrate = Migrate(app,db)
