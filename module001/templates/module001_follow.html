@@ -4,10 +4,10 @@
 
 {% block content %}
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="float: left;">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
+          <ul class="nav nav-sidebar" style="width: 290px;">
               <li><a href={{url_for('module001.module001_index')}}>Home</a></li>
               <li><a href={{url_for('module001.module001_course')}}>Create</a></li>
               <li><a href={{url_for('module001.module001_follow')}}>Following</a></li>
@@ -18,8 +18,9 @@
       </div>
     </div>
 
+    <div class="container justify-content-center">
 
-    <div class="container">
+        <div class="container">
 
 
         {% if unfollow %}
@@ -78,4 +79,11 @@
           </div>
 
     </div>
+
+
+
+    </div>
+
+
+
 {% endblock %}
